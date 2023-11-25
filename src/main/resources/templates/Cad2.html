@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Conta</title>
+
+    <!-- css/bootstrap-->
+    <link rel="stylesheet" href="/CSS/contaconfig.css">
+    <link rel="stylesheet" href="/CSS/Header.Footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/carrinho.css">
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="logo"><img th:src="@{/imagens/logoUVet.png}"/></a>
+
+        <nav class="navbar">
+    
+            <!-- <div class="namuser">Olá, fulaninho</div> -->
+    
+            <a href="/">Home</a></li>
+            <a href="/">Sobre</a>
+            <a href="/projetos/blog">Blog</a>
+            <a href="/categoria/diversos">Produtos</a>
+
+            <!--<nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="/cadastro/entrar">Entrar</a>
+                <a href="/cadastro/cadastrar">Cadastrar</a>
+            </nav>
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#" id="open-cart"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                    <a href="/cadastro/entrar">Entrar</a>
+	                <a href="/cadastro/cadastrar">Cadastrar</a>
+	                <a href="/cadastro/entrar">Administrador</a>
+
+                    <!--    <div class="namuser">Olá, fulaninho!</div>
+                     <a href="#">Perfil</a>
+                     <a href="#">Sair</a>  -->
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <main class="overlay" id="overlay">
+        <button id="close-cart"><i class="bx bx-x"></i></button>
+        <div class="conteudo">
+            <section>
+                    <table>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 1</div>
+                                        <div class="categoria">Categoria 1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="cart-produto">R$ 99,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 2</div>
+                                        <div class="categoria">Categoria 2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="teste"><span class="cart-produto">R$ 75,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 3</div>
+                                        <div class="categoria">Categoria 3</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="cart-produto">R$ 120,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+            </section>
+            <aside>
+                <div class="caixa">
+
+                    <div class="informacao">
+                        <div><span class="frete">Frete</span><span>Gratuito</span></div>
+                        <div>
+                            <button id="cupom-desconto">
+                                Adicionar cupom de desconto
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <footer>
+
+                        <div id="carrinho-de-compras">
+                            <ul id="lista-de-compras"></ul>
+                            <p><span id="total-carrinho">R$ 0.00</span></p>
+
+                        </div>
+                    </footer>
+                </div>
+                <button class="botao-finalizar">Finalizar Compra</button>
+            </aside>
+        </div>
+    </main>
+
+
+    <section class="data">
+        <div class="container light-style flex-grow-1 container-p-y">
+            <div class="card overflow-hidden">
+                <div class="push"></div>
+                <h4 class="font-weight-normal text-uppercase  py-3 mb-4">
+                    Minha Conta
+                </h4>
+                <div class="row no-gutters row-bordered row-border-light">
+                    <div class="col-md-3 pt-0">
+                        <div class="list-group list-group-flush account-settings-links">
+                            <a class="list-group-item list-group-item-action active" data-toggle="list"
+                                href="#account-general">Finalize seu cadastro</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="account-general">
+
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <div class="container mt-5 ">
+                                        <form action="/cadastro/atualizar-cadastro">
+                                            <div class="row">
+
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="card-body media align-items-center">
+                                                        <img src="CSS/imagens/login.svg"
+                                                            alt class="d-block ui-w-80">
+                                                        <div class="media-body ml-4">
+                                                            <label class="btn btn-outline-primary">
+                                                                Subir Foto
+                                                                <input type="file" class="account-settings-fileinput">
+                                                            </label> &nbsp;
+                                                            <button type="button"
+                                                                class="btn btn-default md-btn-flat">Deletar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 offset-md-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Nome</label>
+                                                        <input type="text" name="nome_usu" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Sobrenome</label>
+                                                        <input type="text" name="sobrenome_usu" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label">CPF</label>
+                                                        <input type="text" name="cpf" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-8  offset-md-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Sexo</label>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="masculino">
+                                                            <label class="form-check-label" for="sexoMasculino">
+                                                                Masculino
+                                                            </label>
+                                                        </div>
+                                                        
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="feminino">
+                                                            <label class="form-check-label" for="sexoFeminino">
+                                                                Feminino
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sexo" id="sexoOutro" value="outro">
+                                                            <label class="form-check-label" for="sexoOutro">
+                                                                Outro
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 offset-md-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label">E-mail</label>
+                                                        <input type="text" name="end_prim" class="form-control mb-1">
+                                                        <!-- cod. verificação e-mail, com jquery abaixo-->
+                                                        <!--    <div class="alert alert-warning mt-3">
+                                                            Your email is not confirmed. Please check your inbox.<br>
+                                                            <a href="javascript:void(0)">Resend confirmation</a>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="telefone">Telefone</label>
+                                                        <input type="tel" class="form-control" id="telefone"
+                                                            name="tel_usu">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="form-group">
+                                                        <label for="endereco">Endereço</label>
+                                                        <input type="text" class="form-control" id="endereco"
+                                                            name="log_end">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 offset-md-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Número</label>
+                                                        <input type="number" name="num_end" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Complemento</label>
+                                                        <input type="text" name="comple_end" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 offset-md-2">
+                                                    <div class="form-group">
+                                                        <label for="cidade">Cidade</label>
+                                                        <input type="text" class="form-control" id="cidade"
+                                                            name="cidade">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="estado">Estado</label>
+                                                        <select id="estado" name="UF" class="form-control">
+                                                            <option selected>Escolher...</option>
+                                                             <option value="AC">Acre</option>
+															    <option value="AL">Alagoas</option>
+															    <option value="AP">Amapá</option>
+															    <option value="AM">Amazonas</option>
+															    <option value="BA">Bahia</option>
+															    <option value="CE">Ceará</option>
+															    <option value="DF">Distrito Federal</option>
+															    <option value="ES">Espírito Santo</option>
+															    <option value="GO">Goiás</option>
+															    <option value="MA">Maranhão</option>
+															    <option value="MT">Mato Grosso</option>
+															    <option value="MS">Mato Grosso do Sul</option>
+															    <option value="MG">Minas Gerais</option>
+															    <option value="PA">Pará</option>
+															    <option value="PB">Paraíba</option>
+															    <option value="PR">Paraná</option>
+															    <option value="PE">Pernambuco</option>
+															    <option value="PI">Piauí</option>
+															    <option value="RJ">Rio de Janeiro</option>
+															    <option value="RN">Rio Grande do Norte</option>
+															    <option value="RS">Rio Grande do Sul</option>
+															    <option value="RO">Rondônia</option>
+															    <option value="RR">Roraima</option>
+															    <option value="SC">Santa Catarina</option>
+															    <option value="SP">São Paulo</option>
+															    <option value="SE">Sergipe</option>
+															    <option value="TO">Tocantins</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="text-right mt-3">
+                                        <a href="/cadastro/minha-conta"><button type="button" class="btn btn-primary">Seguir</button>&nbsp;</a>
+                                        </br></br></br>
+                                    </div>
+                                </div>
+                            </div>
+    </section>
+
+
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img th:src="@{/imagens/cartoes.png}"/>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="/categoria/cachorro">Cachorro</a> <!--fazer classe de ícones-->
+            <a href="/categoria/gato">Gato</a>
+            <a href="/categoria/diversos">Diversos</i></a>
+            <a href="/categoria/farmacia">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a> <!--fazer classe de ícones-->
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+            
+            
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+            
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+            
+
+        </div>
+
+    </div>
+
+    <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                        processo de decodificação de endereços de e-mail-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/paginacao.js"> </script>
+    <script src="JS/Login-Cad.js"></script>
+    <script src="JS/headeracoes.js"></script>
+    <script src="JS/carrinho.js"></script>
+
+</body>
+
+</html>

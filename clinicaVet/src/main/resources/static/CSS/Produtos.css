@@ -1,0 +1,400 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'nunito', sans-serif;
+}
+
+body {
+  background-color: rgb(250, 250, 250);
+}
+
+
+/* home dos produtos*/
+
+#products-home {
+  background-image: linear-gradient(rgb(250 250 250 / 18%), rgb(65 65 65 / 70%)), url(imagens/Produtos/Design\ sem\ nome.png);
+  width: 100%;
+  height: 63vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#products-home h2 {
+  font-family: 'Berkshire Swash', serif;
+  color: white;
+  font-size: 3.2rem;
+  letter-spacing: 1px;
+  margin-top: 13%;
+}
+
+.search-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 18px 0 0 18px;
+  width: 30%;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0 18px 18px 0;
+  background-color: rgb(156, 204, 136);
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* categorias de produtos */
+
+.categories {
+  width: 100%;
+}
+
+.categories .wrapper {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 17px 0;
+
+}
+
+.categories .wrapper .categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories .wrapper .categories-container .category {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+  transition: .5s ease-out;
+}
+
+
+.categories .wrapper .categories-container .category:hover {
+  cursor: pointer;
+}
+
+
+.categories .wrapper .categories-container .category:hover img {
+  transform: scale(1.2);
+  transition: .5s ease-in;
+
+}
+
+.categories .wrapper .categories-container .category::before {
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #9ccc8829;
+  position: absolute;
+  z-index: 1;
+
+}
+
+.categories .wrapper .categories-container .category img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+
+.categories .wrapper .categories-container .category .category-body {
+  position: absolute;
+  text-align: center;
+  color: #585353;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+}
+
+
+.category-title {
+  text-align: center;
+  position: relative;
+  line-height: 60px;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(125, 125, 125);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.category-title::after {
+  content: '';
+  background: rgb(156, 204, 136);
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+  text-align: center;
+  margin: 30px auto 50px;
+  position: relative;
+  line-height: 60px;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(125, 125, 125);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+
+}
+
+.title::after {
+  content: '';
+  background: rgb(156, 204, 136);
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.categories .wrapper .categories-container .category .category-body h4 {
+  font-size: 15px;
+}
+
+
+/* produtos/itens */
+
+.small-container {
+  max-width: 1080px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 8%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.col-4{
+  position: relative;
+}
+
+.col-4 {
+  border: 2px solid #0000000f;
+  border-radius: 10px;
+  flex-basis: 20%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+  margin-left: 2%;
+  margin-right: 3%;
+}
+
+.col-4 img {
+  width: 100%;
+}
+
+.col-4 h4 {
+  color: #555;
+  font-weight: normal;
+}
+
+.col-4 p {
+  font-size: 14px;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+}
+
+.col-4 .buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.col-4 .buttons a {
+  flex: 1 1 16rem;
+  padding: .1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #444;
+  border: .1rem solid #444;
+}
+
+.col-4 .buttons a.buy:hover {
+  background: #444;
+  color: #fff;
+}
+
+.favorite-icon {
+  position: static;
+  font-size: 20px;
+  float: inline-end;
+  color: #444444b6;
+}
+
+.favorite-icon .fas {
+  position: static;
+  font-size: 20px;
+  float: inline-end;
+  color: #ff0000b6;
+}
+
+.rating .fa-star,
+.fa-star-half-alt {
+  color: #FFD700;
+  font-size: 15px;
+}
+
+
+@media only screen and (max-width: 1395px) {
+
+  .col-4 {
+    min-width: 175px;
+  }
+
+}
+
+@media only screen and (max-width: 1040px) {
+
+  #products-home {
+    background-image: linear-gradient(rgb(250 250 250 / 18%), rgb(65 65 65 / 70%)), url(imagens/Produtos/tablet.png);
+  }
+
+  #products-home h2 {
+    font-size: 2rem;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .col-4 {
+    min-width: 100px;
+  }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+  .row {
+    justify-content: space-around;
+  }
+
+  .col-4 {
+    flex-basis: 34%;
+  }
+
+}
+
+@media only screen and (max-width: 860px) {
+
+  .categories .wrapper {
+    width: 56%;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+  .categories .wrapper .categories-container .category {
+    width: 110px;
+    height: 110px;
+  }
+
+  .categories .wrapper .categories-container .category .category-body {
+    top: 40px;
+  }
+
+  .categories .wrapper .categories-container .category .category-body h4 {
+    font-size: 11px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  #products-home {
+    background-image: linear-gradient(rgb(250 250 250 / 18%), rgb(65 65 65 / 70%)), url(imagens/Produtos/ideal\ para\ seu\ pets2.png);
+  }
+
+  .search-container input[type="text"] {
+    width: 78%;
+  }
+
+  .categories .wrapper {
+    width: 80%;
+  }
+
+  .small-container {
+    max-width: 1045px;
+    margin: auto;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 8%;
+  }
+
+  .row {
+    text-align: center;
+  }
+
+  .col-4 {
+    flex-basis: 100%;
+  }
+
+}
+
+@media screen and (max-height: 693px) and (orientation: landscape) {
+
+  #products-home {
+    height: 100vh;
+    background-image: linear-gradient(rgb(250 250 250 / 18%), rgb(65 65 65 / 70%)), url(imagens/Produtos/ideal\ para\ seu\ pets2.png);
+  }
+
+}

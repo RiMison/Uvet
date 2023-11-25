@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Produtos.css">
+    <link rel="stylesheet" href="/CSS/Header.Footer.css">
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- ícones awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--fontes-->
+
+    <!--nunito-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--berkshire-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito:wght@200;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="/CSS/carrinho.css">
+
+    <title>Produtos</title>
+</head>
+
+<body>
+    
+<header>
+    <a href="/" class="logo"><img th:src="@{/imagens/logoUVet.png}"/></a>
+
+    <nav class="navbar">
+
+        <!-- <div class="namuser">Olá, fulaninho</div> -->
+
+        <a href="/">Home</a></li>
+        <a href="/">Sobre</a>
+        <a href="/projetos/blog">Blog</a>
+        <a href="/categoria/diversos">Produtos</a>
+
+        <!--<nav class="navbaruser"> 
+            <a href="#">Perfil</a>
+            <a href="#">Sair</a>
+        </nav> -->
+
+        <nav class="navbarlogin">
+            <a href="/cadastro/entrar">Entrar</a>
+            <a href="/cadastro/cadastrar">Cadastrar</a>
+            <a href="/cadastro/entrar">Administrador</a>
+        </nav>
+
+    </nav>
+
+    <div class="nav-right">
+        <a href="#" id="open-cart"><i class='bx bxs-shopping-bag'></i></a>
+        <div class="user-dropdown">
+            <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+            <div class="dropdown-content">
+                <a href="/cadastro/entrar">Entrar</a>
+                <a href="/cadastro/cadastrar">Cadastrar</a>
+                <a href="/cadastro/entrar">Administrador</a>
+
+                <!--    <div class="namuser">Olá, fulaninho!</div>
+                 <a href="#">Perfil</a>
+                 <a href="#">Sair</a>  -->
+            </div>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+</header>
+
+
+<main class="overlay" id="overlay">
+    <button id="close-cart"><i class="bx bx-x"></i></button>
+    <div class="conteudo">
+        <section>
+                <table>
+                    <tr class="produto1">
+                        <td>
+                            <div class="produto">
+                                <img src="https://picsum.photos/100/120" alt="" />
+                                <div class="info">
+                                    <div class="nome-produto">Produto 1</div>
+                                    <div class="categoria">Categoria 1</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="cart-produto">R$ 99,00</span></td>
+                        <td>
+                            <div class="quantidade">
+                                <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="produto1">
+                        <td>
+                            <div class="produto">
+                                <img src="https://picsum.photos/100/120" alt="" />
+                                <div class="info">
+                                    <div class="nome-produto">Produto 2</div>
+                                    <div class="categoria">Categoria 2</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="teste"><span class="cart-produto">R$ 75,00</span></td>
+                        <td>
+                            <div class="quantidade">
+                                <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="produto1">
+                        <td>
+                            <div class="produto">
+                                <img src="https://picsum.photos/100/120" alt="" />
+                                <div class="info">
+                                    <div class="nome-produto">Produto 3</div>
+                                    <div class="categoria">Categoria 3</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="cart-produto">R$ 120,00</span></td>
+                        <td>
+                            <div class="quantidade">
+                                <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+        </section>
+        <aside>
+            <div class="caixa">
+
+                <div class="informacao">
+                    <div><span class="frete">Frete</span><span>Gratuito</span></div>
+                    <div>
+                        <button id="cupom-desconto">
+                            Adicionar cupom de desconto
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </button>
+
+                    </div>
+                </div>
+                <footer>
+
+                    <div id="carrinho-de-compras">
+                        <ul id="lista-de-compras"></ul>
+                        <p><span id="total-carrinho">R$ 0.00</span></p>
+
+                    </div>
+                </footer>
+            </div>
+            <button class="botao-finalizar">Finalizar Compra</button>
+        </aside>
+    </div>
+</main>
+
+
+    <section id="products-home">
+        <h2>Produtos ideais </br> para seu pet!</h2>
+        <div class="search-container">
+            <input type="text" placeholder="Encontre aqui...">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- categorias de animais -->
+
+    <div class="categories">
+        <div class="wrapper">
+
+            <h2 class="category-title">Categorias</h2>
+
+
+            <div class="categories-container">
+
+                <div class="category">
+                    <a href="/categoria/diversos">
+                        <img th:src="@{/imagens/Produtos/bag.png}"/>
+                        <div class="category-body">
+                            <h4>Diversos</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="category">
+                    <a href="/categoria/cachorro">
+                        <img th:src="@{/imagens/Produtos/dog.png}"/>
+                        <div class="category-body">
+                            <h4>Cachorro</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="category">
+                    <a href="/categoria/gato">
+                        <img th:src="@{/imagens/Produtos/cat1.png}"/>
+                        <div class="category-body">
+                            <h4>Gato</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="category">
+                    <a href="/categoria/farmacia">
+                        <img th:src="@{/imagens/Produtos/med.png}"/>
+                        <div class="category-body">
+                            <h4>Farmácia</h4>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- produtos-->
+
+    <div class="small-container" th:object="${produto}">
+        <h2 class="title">Produtos</h2>
+
+        <div class="row">
+
+           <div class="col-4">
+                <!--   <div class="favorite-icon">
+                    <i class="fas fa-heart"></i>
+                </div> -->
+                <a href="/produtos/produto">
+                <img th:src="@{/imagens/Produtos/1.png}" th:field="*{imgProduto}"/>
+                <h4 th:text="*{nomeProduto}">Ração</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p th:text="*{vlrProduto}">R$ 5,00</p>
+                </a>
+                <!--   <div class="buttons">
+                    <a href="#" class="buy">Comprar</a>
+                </div> -->
+            </div>
+
+
+            <div class="col-4">
+                <!--   <div class="favorite-icon">
+                    <i class="fas fa-heart"></i>
+                </div> -->
+                <a href="/produtos/produto">
+                <img th:src="@{/imagens/Produtos/1.png}" th:field="*{imgProduto}"/>
+                <h4 th:text="*{nomeProduto}">Ração</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p th:text="*{vlrProduto}">R$ 5,00</p>
+                </a>
+                <!--   <div class="buttons">
+                    <a href="#" class="buy">Comprar</a>
+                </div> -->
+            </div>
+
+            <div class="col-4">
+                <!--   <div class="favorite-icon">
+                    <i class="fas fa-heart"></i>
+                </div> -->
+                <a href="/produtos/produto">
+                <img th:src="@{/imagens/Produtos/1.png}" th:field="*{imgProduto}"/>
+                <h4 th:text="*{nomeProduto}">Ração</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p th:text="*{vlrProduto}">R$ 5,00</p>
+                </a>
+                <!--   <div class="buttons">
+                    <a href="#" class="buy">Comprar</a>
+                </div> -->
+            </div>
+
+            <div class="col-4">
+                <!--   <div class="favorite-icon">
+                    <i class="fas fa-heart"></i>
+                </div> -->
+                <a href="/produtos/produto">
+                <img th:src="@{/imagens/Produtos/1.png}" th:field="*{imgProduto}"/>
+                <h4 th:text="*{nomeProduto}">Ração</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p th:text="*{vlrProduto}">R$ 5,00</p>
+                </a>
+                <!--   <div class="buttons">
+                    <a href="#" class="buy">Comprar</a>
+                </div> -->
+            </div>
+
+        </div>
+
+        <button id="load-more"> Ver Mais </button>
+
+    </div>
+
+    <!-- footer -->
+
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img th:src="@{/imagens/cartoes.png}"/>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="/categoria/cachorro">Cachorro</a>
+            <a href="/categoria/gato">Gato</a>
+            <a href="/categoria/diversos">Diversos</i></a>
+            <a href="/categoria/farmacia">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/JS/produtos.js"></script>
+    <script src="/JS/headeracoes.js"></script>
+	<script src="/JS/carrinho.js"></script>
+</body>
+
+
+
+</html>

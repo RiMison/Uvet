@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="AdmUvet.css">
+    <link rel="stylesheet" href="UVET Filtro.css" />
+    <link rel="stylesheet" href="Header.Footer.css" />
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- JavaScript-->
+    <script href="UVET Filtro.js"></script>
+    <script href="headeracoes.js"></script>
+    
+    <title>catalogo</title>
+
+</head>
+<body>
+    <!-- cabeçalho -->
+    <header>
+        <a href="HTMLUvet.html#homeid" class="logo"><img src="CSS/imagens/logoUVet.png" /></a>
+
+        <nav class="navbar"> 
+            
+         <!-- <div class="namuser">Olá, fulaninho</div> -->
+
+            <a href="#homeid">Home</a></li>
+            <a href="#abusid">Sobre</a>
+            <a href="#cardsid">Blog</a>
+            <a href="#">Produtos</a>
+
+        <!--<nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="Login-Cad-UVet.html">Entrar</a>
+                <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+            </nav> 
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                   <a href="Login-Cad-UVet.html">Entrar</a>
+                   <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+
+             <!--    <div class="namuser">Olá, fulaninho!</div>
+                     <a href="#">Perfil</a>
+                     <a href="#">Sair</a>  -->
+
+
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <button class="tab-button" onclick="showTab('InsertProd')">Inserir Produtos</button>
+    <button class="tab-button" onclick="showTab('UpdateProd')">Atualizar Produtos</button>
+    <button class="tab-button" onclick="showTab('DeleteProd')">Excluir Produtos</button>
+    <button class="tab-button" onclick="showTab('ListProd')">Listar Produtos</button>
+    
+    <script>
+        function showTab(tabId) {
+            // Oculta todas as abas
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+            
+            // Exibe a aba desejada
+            var tab = document.getElementById(tabId);
+            if (tab) {
+                tab.style.display = 'block';
+            }
+        }
+    </script>
+
+
+    <div id="InsertProd" class="tab-content">
+        <h1>Inserir Novo Produto</h1>
+        <p>Insira as informações dos produtos que deseja adcionar à loja</p>
+        <form action="" method="POST">
+            <label for="nome">Nome do Produto:</label><br>
+            <input type="text" id="nome" name="nome" required><br>
+    
+            <label for="descricao">Descrição do Produto:</label><br>
+            <textarea id="descricao" name="descricao" rows="2" cols="50" required></textarea><br>
+    
+            <label for="marca">Marca do Produto:</label><br>
+            <input type="text" id="marca" name="marca" required><br>
+    
+            <label for="info_tecnicas">Informações Técnicas:</label><br>
+            <textarea id="info_tecnicas" name="info_tecnicas" rows="2" cols="50" required></textarea><br>
+    
+            <label for="valor">Valor do Produto:</label><br>
+            <input type="number" id="valor" name="valor" required><br><br>
+
+            <label for="valor">Imagem do Produto:</label><br>
+            <input type="file" id="imgProd" name="imgProd" required><br><br>
+    
+            <input type="submit" class="button" value="Cadastrar Produto">
+        </form>
+    </div>
+
+    <div id="UpdateProd" class="tab-content">
+        <h1>Atualizar um Produto</h1>
+        <p>Altere as informações dos produtos</p>
+
+        <form action="" method="POST">
+            <label for="nome">Código do Produto:</label><br>
+            <input type="number" id="codProd" name="codPro" required><br>
+
+            <label for="nome">Nome do Produto:</label><br>
+            <input type="text" id="nome" name="nome" required><br>
+        
+            <label for="descricao">Descrição do Produto:</label><br>
+            <textarea id="descricao" name="descricao" rows="2" cols="50" required></textarea><br>
+        
+            <label for="marca">Marca do Produto:</label><br>
+            <input type="text" id="marca" name="marca" required><br>
+        
+            <label for="info_tecnicas">Informações Técnicas:</label><br>
+            <textarea id="info_tecnicas" name="info_tecnicas" rows="2" cols="50" required></textarea><br>
+        
+            <label for="valor">Valor do Produto:</label><br>
+            <input type="number" id="valor" name="valor" required><br><br>
+
+            <label for="valor">Imagem do Produto:</label><br>
+            <input type="file" id="imgProd" name="imgProd" required><br><br>
+        
+            <input type="submit" class="button" value="Atualizar Produto">
+        </form>
+    </div>
+
+    <div id="DeleteProd" class="tab-content">
+        <h1>Excluir um Produto</h1>
+        <p>Exclua o produto da loja</p>
+
+        <form action="" method="POST">
+            <label for="nome">Código do Produto:</label><br>
+            <input type="number" id="codProd" name="codPro" required><br><br>
+    
+            <input type="submit" class="button" value="Excluir">
+        </form>
+    </div>
+
+    <div id="ListProd" class="tab-content">
+        <h1>Produtos Cadastrados</h1>
+        <p>Todos os produtos da loja em um só lugar</p>
+
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID do Produto</th>
+                <th>Nome do Produto</th>
+                <th>Descrição</th>
+                <th>Marca</th>
+                <th>Informações Técnicas</th>
+                <th>Valor</th>
+                <th>Imagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Produto A</td>
+                <td>Descrição do Produto A</td>
+                <td>Marca A</td>
+                <td>Informações técnicas do produto A</td>
+                <td>R$ 50,00</td>
+                <td>Imagem</td>
+            </tr>
+           
+           
+        </tbody>
+    </table>
+
+    </div>
+
+
+
+    
+        
+</body>
+</html>

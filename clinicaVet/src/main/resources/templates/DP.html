@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="CSS/LP-swiper-bundle.min.css"  />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/DP.css" />
+    <link rel="stylesheet" href="CSS/Header.Footer.css" />
+
+    <title>Detalhes do pedido</title>
+
+</head>
+
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <a href="HTMLUvet.html#homeid" class="logo"><img src="CSS/logoUVet.png" /></a>
+
+        <nav class="navbar">
+
+            <!-- <div class="namuser">Olá, fulaninho</div> -->
+
+            <a href="#homeid">Home</a></li>
+            <a href="#abusid">Sobre</a>
+            <a href="#cardsid">Blog</a>
+            <a href="#">Produtos</a>
+
+            <!-- <nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="Login-Cad-UVet.html">Entrar</a>
+                <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+            </nav>
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                    <a href="Login-Cad-UVet.html">Entrar</a>
+                    <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+
+                    <!-- <div class="namuser">Olá, fulaninho!</div>
+                    <a href="contaconfig.html">Perfil</a>
+                    <a href="#">Sair</a> -->
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+
+
+    <section class="abus">
+
+        <!-- grade 1 -->
+        <div class="abus-text">
+            <div class="abus-tx">
+                <h2>Pedido #121710</h2>
+            <p>Efetuado em junho 11, 2023 07:34</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Código</th>
+                            <th>Preço</th>
+                            <th>Qtd.</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Ração Origens Gatos Castrados Salmão 1kg</td>
+                            <td>19</td>
+                            <td>R$21,17</td>
+                            <td>1</td>
+                            <td>R$21,17</td>
+                        </tr>
+                        <tr>
+                            <td>Sachê Optimum Gatos Castrados Frango 85g</td>
+                            <td>180</td>
+                            <td>R$21,16</td>
+                            <td>1</td>
+                            <td>R$21,16</td>
+                        </tr>
+                    </table>  
+                
+                    <hr>
+                    
+                    <table>
+                        <tr> 
+                            <td colspan="9">Subtotal</td>                                                  
+                            <td>R$42,33</td>     
+                        </tr>
+                        <tr>
+                            <td colspan="9">Frete</td>                            
+                            <td>R$9,10</td>             
+                        </tr>               
+                    <tfoot>
+                        <tr>
+                            <td colspan="9"><b>Total</b></td>                           
+                            <td><b>R$51,43</b></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>    
+        </div>
+
+        <!-- grade 2 -->
+        <div class="abus-text">
+            <div class="abus-t">
+                <h2>Endereço de cobrança</h2>
+                <p><b>Status do pagamento: </b>pago</p>
+                <P>CFP: 132456789</P>
+                <P><b>Endereço</b>
+                    <br>Avenida Almirante Maximiano Fonseca,
+                    <br>Zona Portuária,
+                    <br>Rio Grande - RS
+                    <br>CEP - 04302021
+                </P>
+
+                <hr>
+
+                <h2>Endereço de entrega</h2>
+                <p><b>Status do processamento: </b>finalizado</p>
+                <P><b>CFP:</b> 987654321</P>
+                <P><b>Endereço</b>
+                    <br>Rua Maria Luísa do Val Penteado,
+                    <br>Bairro Cidade São Mateus,
+                    <br>São Paulo - SP
+                    <br>CEP - 14401150
+                </P>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img src="imagens/cartoes.png" alt="">
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="#">Cachorro</a>
+            <a href="#">Gato</a>
+            <a href="#">Diversos</i></a>
+            <a href="#">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+          
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+            
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</body>
+
+</html>

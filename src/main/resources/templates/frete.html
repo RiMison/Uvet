@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="/CSS/LP-swiper-bundle.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/frete.css" />
+    <link rel="stylesheet" href="/CSS/Header.Footer.css" />
+    <link rel="stylesheet" href="/CSS/carrinho.css">
+
+    <title>Frete</title>
+
+</head>
+
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <a href="/" class="logo"><img th:src="@{/imagens/logoUVet.png}"/></a>
+
+        <nav class="navbar">
+
+            <!-- <div class="namuser">Olá, fulaninho</div> -->
+
+            <a href="/">Home</a></li>
+            <a href="/">Sobre</a>
+            <a href="/projetos/blog">Blog</a>
+            <a href="/categoria/diversos">Produtos</a>
+
+            <!--<nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="/cadastro/entrar">Entrar</a>
+                <a href="/cadastro/cadastrar">Cadastrar</a>
+                <a href="/cadastro/entrar">Administrador</a>
+            </nav>
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#" id="open-cart"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                    <a href="/cadastro/entrar">Entrar</a>
+                    <a href="/cadastro/cadastrar">Cadastrar</a>
+                    <a href="/cadastro/entrar">Administrador</a>
+                   
+
+                    <!--    <div class="namuser">Olá, fulaninho!</div>
+                     <a href="#">Perfil</a>
+                     <a href="#">Sair</a>  -->
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+
+
+   
+               
+
+
+    <section class="abus">
+
+        <!-- grade 1 -->
+        <div class="abus-text">
+            <div class="abus-tx">
+                <h2>Pedido #121710</h2>
+            <p>Efetuado em junho 11, 2023 07:34</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Código</th>
+                            <th>Preço</th>
+                            <th>Qtd.</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Ração Origens Gatos Castrados Salmão 1kg</td>
+                            <td>19</td>
+                            <td>R$21,17</td>
+                            <td>1</td>
+                            <td>R$21,17</td>
+                        </tr>
+                        <tr>
+                            <td>Sachê Optimum Gatos Castrados Frango 85g</td>
+                            <td>180</td>
+                            <td>R$21,16</td>
+                            <td>1</td>
+                            <td>R$21,16</td>
+                        </tr>
+                    </table>  
+                
+                    <hr>
+                    
+                    <table>
+                        <tr> 
+                            <td colspan="9">Subtotal</td>                                                  
+                            <td>R$42,33</td>     
+                        </tr>
+                        <tr>
+                            <td colspan="9">Frete</td>                            
+                            <td>R$9,10</td>             
+                        </tr>               
+                    <tfoot>
+                        <tr>
+                            <td colspan="9">Total                        
+                                
+                            </td>                           
+                            <td>
+                                <p id="paragrafo"></p>
+                                
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>    
+        </div>
+
+        <!-- grade 2 -->
+        <div class="abus-text">
+            <div class="abus-t">
+                <h2>Endereço de Entrega</h2>
+                <P>CFP: 132456789</P>
+                <P><b>Endereço</b>
+                    <br>Avenida Almirante Maximiano Fonseca,
+                    <br>Zona Portuária,
+                    <br>Rio Grande - RS
+                    <br>CEP - 04302021
+                </P>
+
+                <a href="/pedidos/novo-endereco">Atualizar Endereço</a>
+                <hr>
+                <hr>
+                <div class="frete">
+                    <div class="checkbox" onclick="toggleCheckbox(1)">
+                        <div class="checkbox-box"></div>
+                        
+                        <button onclick="funcao()">Clique aqui</button>                        
+                        <span>Correio       R$ F1</span>
+                    </div>
+                    <div class="checkbox" onclick="toggleCheckbox(2)">
+                        <div class="checkbox-box"></div>
+                        <button onclick="funcao1()">Clique aqui</button> 
+                        <span>Sedex         R$ F2</span>
+                    </div>
+                    <div class="checkbox" onclick="toggleCheckbox(3)">
+                        <div class="checkbox-box"></div>
+                        <button onclick="funcao2()">Clique aqui</button> 
+                        <span>Mobi          R$ F3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img src="imagens/cartoes.png" alt="">
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="#">Cachorro</a>
+            <a href="#">Gato</a>
+            <a href="#">Diversos</i></a>
+            <a href="#">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+          
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+            
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    <p id="paragrafo">Clique no botão para mudar o texto</p>
+
+    <button onclick="funcao()">Clique aqui</button>
+
+</body>
+<script>
+
+    var preco1 = "a";   
+    var preco2 = "b";  
+    var frete1 = "f1";
+    var frete2 = "f2";
+    var frete3 = "f3";
+
+    
+    var soma = preco1+ "+" + preco2
+    
+    var soma1 = preco1+ "+" + preco2 + "+" + frete1;
+    var soma2 = preco1+ "+" + preco2 + "+" + frete2; 
+    var soma3 = preco1+ "+" + preco2 + "+" + frete3;   
+
+    document.write("Total = " + soma);
+    document.write("Total = " + soma1);
+    document.write("Total = " + soma2);
+    document.write("Total = " + soma3);
+    
+
+    
+    
+  </script>
+
+    <script src="JS/carrinho.js"></script>
+    <script>
+        let selectedCheckbox = 0;
+    
+        function toggleCheckbox(index) {
+          if (index === selectedCheckbox) {
+            return; // A mesma opção já está selecionada
+          }
+    
+          // Desmarque a opção selecionada anteriormente
+          if (selectedCheckbox !== 0) {
+            document.querySelector(`.checkbox:nth-child(${selectedCheckbox})`).classList.remove('selected');
+          }
+    
+          // Marque a nova opção
+          selectedCheckbox = index;
+          document.querySelector(`.checkbox:nth-child(${selectedCheckbox})`).classList.add('selected');
+        }
+      </script>
+     
+     
+<script>
+function funcao() {
+    document.getElementById("paragrafo").innerHTML = soma1;
+    
+}
+function funcao1() {
+    document.getElementById("paragrafo").innerHTML = soma2;
+    
+}
+function funcao2() {
+    document.getElementById("paragrafo").innerHTML = soma3;
+    
+}
+</script>
+
+</html>

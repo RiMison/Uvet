@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/blog.css">
+    <link rel="stylesheet" href="/CSS/Header.Footer.css">
+
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Blog</title>
+
+</head>
+
+<body>
+
+    <header>
+        <a href="home.html#homeid" class="logo"><img th:src="@{/imagens/logoUVet.png}"/></a>
+
+        <nav class="navbar">
+    
+            <!-- <div class="namuser">Olá, fulaninho</div> -->
+    
+            <a href="/">Home</a></li>
+            <a href="/">Sobre</a>
+            <a href="/projetos/blog">Blog</a>
+            <a href="/categoria/diversos">Produtos</a>
+
+            <!--<nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="Login-Cad-UVet.html">Entrar</a>
+                <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+            </nav>
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                    <a href="Login-Cad-UVet.html">Entrar</a>
+                    <a href="Login-Cad-UVet.html?auto_check=true">Cadastrar</a>
+
+                    <!--    <div class="namuser">Olá, fulaninho!</div>
+                     <a href="#">Perfil</a>
+                     <a href="#">Sair</a>  -->
+
+
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <div class="full-content" th:object = "${projetos}">
+        <div class="post-header">
+            <div class="header-content post-container">
+                <h2>Blog</h2>
+               <!-- <h1 class="header-title" th:text="*{titulo}">O melhor shampoo para pets</h1> * -->
+                <img th:src="@{/imagens/cachorro-tomando-banho-petlove.jpg}" alt="" class="header-img">
+            </div>
+        </div>
+        <div class="post-content post-container" >
+            <h2 class="sub-heading">Subtítulo Subtítulo Subtítulo Subtítulo</h2>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Voluptatum autem eveniet eum.
+                Minus quaerat earum, quae asperiores sit suscipit rerum magni
+                illo sapiente, voluptas quis,
+                deleniti eaque nesciunt quasi eos.</p>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Voluptatum autem eveniet eum.
+                Minus quaerat earum, quae asperiores sit suscipit rerum magni
+                illo sapiente, voluptas quis,
+                deleniti eaque nesciunt quasi eos.</p>
+            <h2 class="sub-heading">Subtítulo Subtítulo Subtítulo Subtítulo</h2>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Voluptatum autem eveniet eum.
+                Minus quaerat earum, quae asperiores sit suscipit rerum magni
+                illo sapiente, voluptas quis,
+                deleniti eaque nesciunt quasi eos.</p>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Voluptatum autem eveniet eum.
+                Minus quaerat earum, quae asperiores sit suscipit rerum magni
+                illo sapiente, voluptas quis,
+                deleniti eaque nesciunt quasi eos.</p>
+
+            <div class="btn-bg">
+                <a href="#">Ler o Próximo</a>
+            </div>
+
+        </div>
+
+
+        <div class="share post-container">
+            <span class="share-title">Compartilhar</span>
+            <div class="social-blog">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img th:src="@{/imagens/cartoes.png}" alt="">
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="/categoria/cachorro">Cachorro</a>
+            <!--fazer classe de ícones-->
+            <a href="/categoria/gato">Gato</a>
+            <a href="/categoria/diversos">Diversos</i></a>
+            <a href="/categoria/farmacia">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <!--fazer classe de ícones-->
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/JS/headeracoes.js"></script>
+
+</body>
+
+</html>

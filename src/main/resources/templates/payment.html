@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--icones-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="/CSS/LP-swiper-bundle.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/DP.css" />
+    <link rel="stylesheet" href="/CSS/Header.Footer.css" />
+    <link rel="stylesheet" href="/CSS/carrinho.css">
+    <link rel="stylesheet" href="/CSS/payment.css">
+
+    <title>Pagamentos</title>
+
+</head>
+
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <a href="/" class="logo"><img th:src="@{/imagens/logoUVet.png}"/></a>
+
+        <nav class="navbar">
+
+            <!-- <div class="namuser">Olá, fulaninho</div> -->
+
+            <a href="/">Home</a></li>
+            <a href="/">Sobre</a>
+            <a href="/projetos/blog">Blog</a>
+            <a href="/categoria/diversos">Produtos</a>
+
+            <!--<nav class="navbaruser"> 
+                <a href="#">Perfil</a>
+                <a href="#">Sair</a>
+            </nav> -->
+
+            <nav class="navbarlogin">
+                <a href="/cadastro/entrar">Entrar</a>
+                <a href="/cadastro/cadastrar">Cadastrar</a>
+                <a href="/cadastro/entrar">Administrador</a>
+            </nav>
+
+        </nav>
+
+        <div class="nav-right">
+            <a href="#" id="open-cart"><i class='bx bxs-shopping-bag'></i></a>
+            <div class="user-dropdown">
+                <a href="Login-Cad-UVet.html"><i class='bx bxs-user-circle'></i></a>
+                <div class="dropdown-content">
+                    <a href="/cadastro/entrar">Entrar</a>
+                	<a href="/cadastro/cadastrar">Cadastrar</a>
+                	<a href="/cadastro/entrar">Administrador</a>
+
+                    <!--    <div class="namuser">Olá, fulaninho!</div>
+                     <a href="#">Perfil</a>
+                     <a href="#">Sair</a>  -->
+                </div>
+            </div>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+
+    <main class="overlay" id="overlay">
+        <button id="close-cart"><i class="bx bx-x"></i></button>
+        <div class="conteudo">
+            <section>
+                    <table>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 1</div>
+                                        <div class="categoria">Categoria 1</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="cart-produto">R$ 99,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 2</div>
+                                        <div class="categoria">Categoria 2</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="teste"><span class="cart-produto">R$ 75,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="produto1">
+                            <td>
+                                <div class="produto">
+                                    <img src="https://picsum.photos/100/120" alt="" />
+                                    <div class="info">
+                                        <div class="nome-produto">Produto 3</div>
+                                        <div class="categoria">Categoria 3</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="cart-produto">R$ 120,00</span></td>
+                            <td>
+                                <div class="quantidade">
+                                    <button onclick="decrementQuantity(this)"><i class="bx bx-minus"></i></button>
+                                    <input type="number" value="0" min="0" max="200" class="product-qtd-input" readonly>
+                                    <button onclick="incrementQuantity(this)"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+            </section>
+            <aside>
+                <div class="caixa">
+
+                    <div class="informacao">
+                        <div><span class="frete">Frete</span><span>Gratuito</span></div>
+                        <div>
+                            <button id="cupom-desconto">
+                                Adicionar cupom de desconto
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <footer>
+
+                        <div id="carrinho-de-compras">
+                            <ul id="lista-de-compras"></ul>
+                            <p><span id="total-carrinho">R$ 0.00</span></p>
+
+                        </div>
+                    </footer>
+                </div>
+                <button class="botao-finalizar">Finalizar Compra</button>
+            </aside>
+        </div>
+    </main>
+
+
+
+    <section class="abus">
+
+        <!-- grade 1 -->
+        <div class="abus-text">
+            <div class="abus-tx">
+                <h2>Pedido #121710</h2>
+            <p>Efetuado em junho 11, 2023 07:34</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Código</th>
+                            <th>Preço</th>
+                            <th>Qtd.</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Ração Origens Gatos Castrados Salmão 1kg</td>
+                            <td>19</td>
+                            <td>R$21,17</td>
+                            <td>1</td>
+                            <td>R$21,17</td>
+                        </tr>
+                        <tr>
+                            <td>Sachê Optimum Gatos Castrados Frango 85g</td>
+                            <td>180</td>
+                            <td>R$21,16</td>
+                            <td>1</td>
+                            <td>R$21,16</td>
+                        </tr>
+                    </table>  
+                
+                    <hr>
+                    
+                    <table>
+                        <tr> 
+                            <td colspan="9">Subtotal</td>                                                  
+                            <td>R$42,33</td>     
+                        </tr>
+                        <tr>
+                            <td colspan="9">Frete</td>                            
+                            <td>R$9,10</td>             
+                        </tr>               
+                    <tfoot>
+                        <tr>
+                            <td colspan="9"><b>Total</b></td>                           
+                            <td><b>R$51,43</b></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>    
+        </div>
+
+        <!-- grade 2 -->
+        <div class="pagamento">
+            <div class="title">
+                <h1>método de pagamento</h1>
+            </div>
+    
+            <form action="#">
+                <input type="radio" name="payment" id="paypal">
+                <input type="radio" name="payment" id="cartao">
+                <input type="radio" name="payment" id="pix">
+                <input type="radio" name="payment" id="boleto">
+    
+    
+                <div class="category">
+    
+                    <label for="paypal" class="paypalMethod">
+                        <div class="imgName">
+                            <div class="imgPagamento paypal">
+                                <img src="https://i.ibb.co/KVF3mr1/paypal.png" alt="">
+                            </div>
+                            <span class="name">Paypal</span>
+                        </div>
+                        <span class="check"><i class="fa-solid fa-circle-check" style="color: rgb(98, 138, 54);"></i></span>
+                    </label>
+    
+                    <label for="cartao" class="cartaoMethod">
+                        <div class="imgName">
+                            <div class="imgPagamento CARTAO">
+                                <img th:src="@{/imagens/cartao.png}"/>
+                            </div>
+                            <span class="name">Cartão</span>
+                        </div>
+                        <span class="check"><i class="fa-solid fa-circle-check" style="color: rgb(98, 138, 54);"></i></span>
+                    </label>
+
+                    <label for="pix" class="pixMethod">
+                        <div class="imgName">
+                            <div class="imgPagamento Pix">
+                                <img th:src="@{/imagens/pix.png}"/>
+                            </div>
+                            <span class="name">PIX</span>
+                        </div>
+                        <span class="check"><i class="fa-solid fa-circle-check" style="color: rgb(98, 138, 54);"></i></span>
+                    </label>
+
+                    <label for="boleto" class="boletoMethod">
+                        <div class="imgName">
+                            <div class="imgPagamento boleto">
+                                <img th:src="@{/imagens/boleto.png}"/>
+                            </div>
+                            <span class="name">Boleto</span>
+                        </div>
+                        <span class="check"><i class="fa-solid fa-circle-check" style="color: rgb(98, 138, 54);"></i></span>
+                    </label>
+                </div>
+            </form>
+
+            <a href="/pedidos/detalhes"><button class="btn-finalizar">Pagar</button></a>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <div class="footer-box">
+            <h3>Nós Aceitamos</h3>
+            <div class="cartoes">
+                <img th:src="@{/imagens/cartoes.png}"/>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Categorias</h3>
+            <a href="/categoria/cachorro">Cachorro</a>
+            <a href="/categoria/gato">Gato</a>
+            <a href="/categoria/diversos">Diversos</i></a>
+            <a href="/categoria/farmacia">Farmácia</i></a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Mídia Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Informações da loja</h3>
+          
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-home-heart"></i>
+                </div>
+                <div class="text-cont">
+                    <span>Espedito Izídio Andrade, 191A</span>
+                    <span>Metalúrgicos, Osasco</span>
+                </div>
+            </div>
+
+            
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="text-cont">
+                    <span>uvet@outlook.com</span>
+                </div>
+            </div>
+
+            <div class="icon-text">
+                <div class="icon-container">
+                    <i class="bx bxl-whatsapp"></i>
+                </div>
+                <div class="text-cont">
+                    <span>(11) 94080-1600</span>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</body>
+
+    <script src="JS/carrinho.js"></script>
+
+</html>
